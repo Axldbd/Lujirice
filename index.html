@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+
+<meta name="color-scheme" content="light">
+<meta name="supported-color-schemes" content="light">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Luji Rice 🌸 Street Food Japonaise</title>
+<link href="https://fonts.googleapis.com/css2?family=Bangers&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  html {
+    color-scheme: light only;
+    -webkit-color-scheme: light;
+    background-color: #F7E8A0 !important;
+    background: #F7E8A0 !important;
+  }
+  body {
+    background-color: #F7E8A0 !important;
+    background: #F7E8A0 !important;
+    color: #4A2E10 !important;
+  }
+  body::before {
+    background-color: #F7E8A0;
+  }
+  :root {
+    --cream: #F7E8A0;
+    --cream2: #E8D060;
+    --brown: #4A2E10;
+    --brown-light: #6B4420;
+    --gold: #F2C72C;
+    --gold-btn: #F2C72C;
+    --pink: #F4B8C8;
+    --white: #FFFFFF;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Nunito', sans-serif; background-color: var(--cream); color: var(--brown); overflow-x: hidden; position: relative; }
+  .petal { position: fixed; background: radial-gradient(ellipse at 40% 40%, #F9D0DC, #F4B8C8); border-radius: 50% 0 50% 0; opacity: 0; animation: fall linear infinite; pointer-events: none; z-index: 50; }
+  @keyframes fall { 0% { transform: translateY(-20px) rotate(0deg); opacity: 0; } 10% { opacity: 0.7; } 90% { opacity: 0.5; } 100% { transform: translateY(100vh) rotate(360deg) translateX(40px); opacity: 0; } }
+  nav { position: fixed; top: 0; left: 0; right: 0; display: flex; align-items: center; justify-content: space-between; padding: 10px 20px; background: rgba(253,243,220,0.92); backdrop-filter: blur(8px); border-bottom: 2px solid var(--brown); z-index: 100; }
+  .nav-btn { display: flex; align-items: center; gap: 8px; background: var(--gold-btn); border: 2.5px solid var(--brown); border-radius: 30px; padding: 10px 18px; font-family: 'Nunito', sans-serif; font-weight: 900; font-size: 0.85rem; letter-spacing: 1px; cursor: pointer; color: var(--brown); box-shadow: 3px 3px 0 var(--brown); transition: transform .1s, box-shadow .1s; text-transform: uppercase; }
+  .nav-btn:hover { transform: translate(-1px,-1px); box-shadow: 4px 4px 0 var(--brown); }
+  #hero { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 120px 24px 60px; position: relative; background-image: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.3) 0%, transparent 70%); }
+  .hero-title { font-family: 'Bangers', cursive; font-size: clamp(3.5rem, 16vw, 5.5rem); letter-spacing: 4px; color: var(--gold); -webkit-text-stroke: 3px var(--brown); text-shadow: 4px 4px 0 var(--brown); line-height: 1; margin-bottom: 12px; }
+  .hero-divider { width: 200px; height: 3px; background: var(--brown); border-radius: 2px; margin: 0 auto 28px; }
+  .hero-tagline { font-weight: 900; font-size: clamp(1.1rem, 5vw, 1.35rem); line-height: 1.4; color: var(--brown); margin-bottom: 12px; }
+  .hero-sub { font-size: 0.95rem; color: var(--brown-light); line-height: 1.6; max-width: 320px; margin: 0 auto 40px; }
+  .hero-cta { background: var(--gold-btn); border: 3px solid var(--brown); border-radius: 18px; padding: 18px 40px; font-family: 'Nunito', sans-serif; font-weight: 900; font-size: 1.1rem; letter-spacing: 2px; text-transform: uppercase; color: var(--brown); cursor: pointer; box-shadow: 5px 5px 0 var(--brown); transition: transform .12s, box-shadow .12s; }
+  .hero-cta:hover { transform: translate(-2px,-2px); box-shadow: 7px 7px 0 var(--brown); }
+  .section-title { font-family: 'Bangers', cursive; font-size: clamp(2.2rem, 10vw, 3rem); letter-spacing: 3px; color: var(--gold); -webkit-text-stroke: 2.5px var(--brown); text-shadow: 3px 3px 0 var(--brown); text-align: center; margin-bottom: 10px; }
+  .section-divider { width: 140px; height: 3px; background: var(--brown); border-radius: 2px; margin: 0 auto 32px; }
+  #menu { padding: 60px 20px; }
+  .menu-card { background: var(--white); border: 3px solid var(--brown); border-radius: 20px; overflow: hidden; margin: 0 auto 24px; max-width: 480px; box-shadow: 5px 5px 0 var(--brown); position: relative; }
+  .menu-card img { width: 100%; display: block; max-height: 280px; object-fit: cover; }
+  .menu-card-body { padding: 16px 20px 20px; }
+  .menu-card-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
+  .menu-card-name { font-family: 'Bangers', cursive; font-size: 1.6rem; letter-spacing: 2px; color: var(--brown); }
+  .menu-card-price { background: var(--gold-btn); border: 2.5px solid var(--brown); border-radius: 30px; padding: 6px 16px; font-weight: 900; font-size: 1rem; color: var(--brown); box-shadow: 2px 2px 0 var(--brown); }
+  .menu-card-desc { font-size: 0.9rem; color: var(--brown-light); line-height: 1.5; }
+  .bestseller-badge { position: absolute; top: 14px; right: 14px; background: var(--pink); border: 2px solid var(--brown); border-radius: 20px; padding: 4px 12px; font-weight: 900; font-size: 0.75rem; color: var(--brown); box-shadow: 2px 2px 0 var(--brown); }
+  .classique-badge { position: absolute; top: 14px; right: 14px; background: #C8E6C9; border: 2px solid var(--brown); border-radius: 20px; padding: 4px 12px; font-weight: 900; font-size: 0.75rem; color: var(--brown); box-shadow: 2px 2px 0 var(--brown); }
+  .nouveaute-badge { position: absolute; top: 14px; right: 14px; background: #FFD0A0; border: 2px solid var(--brown); border-radius: 20px; padding: 4px 12px; font-weight: 900; font-size: 0.75rem; color: var(--brown); box-shadow: 2px 2px 0 var(--brown); }
+  #options-section { padding: 20px 20px 60px; }
+  .options-card { background: var(--white); border: 3px solid var(--brown); border-radius: 20px; padding: 20px; max-width: 480px; margin: 0 auto 20px; box-shadow: 5px 5px 0 var(--brown); }
+  .options-card-title { font-family: 'Bangers', cursive; font-size: 1.3rem; letter-spacing: 2px; margin-bottom: 16px; color: var(--brown); }
+  .option-row { display: flex; align-items: center; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid rgba(44,21,0,0.1); }
+  .option-row:last-child { border-bottom: none; }
+  .option-name { font-weight: 700; font-size: 0.95rem; }
+  .option-price { background: var(--cream2); border: 2px solid var(--brown); border-radius: 20px; padding: 4px 12px; font-weight: 800; font-size: 0.85rem; box-shadow: 1px 1px 0 var(--brown); }
+  .drinks-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
+  .drink-tag { background: var(--cream2); border: 2px solid var(--brown); border-radius: 20px; padding: 6px 14px; font-weight: 700; font-size: 0.85rem; box-shadow: 2px 2px 0 var(--brown); }
+  #infos { padding: 60px 20px; background: var(--cream2); }
+  .info-card { display: flex; align-items: center; gap: 16px; background: var(--white); border: 3px solid var(--brown); border-radius: 16px; padding: 16px 20px; max-width: 480px; margin: 0 auto 16px; box-shadow: 4px 4px 0 var(--brown); }
+  .info-icon { width: 50px; height: 50px; background: var(--gold-btn); border: 2px solid var(--brown); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; flex-shrink: 0; box-shadow: 2px 2px 0 var(--brown); }
+  .info-label { font-family: 'Bangers', cursive; font-size: 1.1rem; letter-spacing: 1.5px; margin-bottom: 2px; }
+  .info-value { font-size: 0.9rem; font-weight: 600; color: var(--brown-light); }
+  footer { background: var(--brown); padding: 48px 20px 40px; text-align: center; position: relative; overflow: hidden; }
+  footer::before { content: ''; position: absolute; inset: 0; background-image: radial-gradient(circle, rgba(212,168,32,0.05) 1px, transparent 1px); background-size: 20px 20px; }
+  .snap-btn { display: inline-flex; align-items: center; gap: 10px; background: var(--gold-btn); border: 3px solid rgba(255,255,255,0.3); border-radius: 14px; padding: 16px 28px; font-family: 'Nunito', sans-serif; font-weight: 900; font-size: 1rem; letter-spacing: 1px; text-transform: uppercase; color: var(--brown); text-decoration: none; box-shadow: 4px 4px 0 rgba(0,0,0,0.3); transition: transform .12s, box-shadow .12s; position: relative; }
+  .snap-btn:hover { transform: translate(-2px,-2px); box-shadow: 6px 6px 0 rgba(0,0,0,0.3); }
+  footer p { margin-top: 32px; font-size: 0.8rem; color: rgba(255,255,255,0.3); position: relative; }
+  body::before { content: ''; position: fixed; inset: 0; background-image: radial-gradient(circle, rgba(44,21,0,0.06) 1px, transparent 1px); background-size: 22px 22px; pointer-events: none; z-index: -1; }
+  #order-overlay { position: fixed; inset: 0; background: rgba(44,21,0,0.6); backdrop-filter: blur(4px); z-index: 200; display: none; align-items: flex-end; justify-content: center; }
+  #order-overlay.active { display: flex; }
+  #order-modal { background: var(--cream); border: 3px solid var(--brown); border-radius: 24px 24px 0 0; width: 100%; max-width: 520px; max-height: 90vh; overflow-y: auto; padding: 24px 20px 40px; box-shadow: 0 -6px 30px rgba(0,0,0,0.2); animation: slideUp .3s ease; }
+  @keyframes slideUp { from { transform: translateY(100%); } to { transform: translateY(0); } }
+  .modal-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; }
+  .modal-close { width: 36px; height: 36px; background: var(--cream2); border: 2px solid var(--brown); border-radius: 50%; font-size: 1.2rem; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 2px 2px 0 var(--brown); }
+  .steps { display: flex; align-items: center; gap: 0; margin-bottom: 28px; justify-content: center; }
+  .step-dot { width: 28px; height: 28px; border-radius: 50%; background: var(--cream2); border: 2.5px solid var(--brown); display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 0.8rem; color: var(--brown-light); flex-shrink: 0; }
+  .step-dot.active { background: var(--gold-btn); color: var(--brown); box-shadow: 2px 2px 0 var(--brown); }
+  .step-dot.done { background: var(--gold-btn); color: var(--brown); }
+  .step-line { flex: 1; height: 2px; background: var(--brown); opacity: 0.2; max-width: 28px; }
+  .step-line.done { opacity: 0.6; }
+  .step-content { display: none; }
+  .step-content.active { display: block; }
+  .step-question { font-family: 'Bangers', cursive; font-size: 1.5rem; letter-spacing: 2px; margin-bottom: 20px; color: var(--brown); }
+  .qty-row { display: flex; align-items: center; justify-content: space-between; background: #FFFFFF; border: 2.5px solid #4A2E10; border-radius: 14px; padding: 12px 16px; margin-bottom: 10px; box-shadow: 3px 3px 0 #4A2E10; }
+  .qty-name { font-weight: 800; font-size: 0.95rem; flex: 1; }
+  .qty-ctrl { display: flex; align-items: center; gap: 10px; }
+  .qty-btn { width: 30px; height: 30px; background: #F2C72C; border: 2px solid #4A2E10; border-radius: 8px; font-size: 1.1rem; font-weight: 900; cursor: pointer; line-height: 1; box-shadow: 2px 2px 0 #4A2E10; }
+  .qty-val { font-weight: 900; font-size: 1rem; min-width: 18px; text-align: center; }
+  .qty-price { font-weight: 700; font-size: 0.85rem; color: #6B4420; margin-left: 10px; white-space: nowrap; }
+  .modal-nav { display: flex; gap: 12px; margin-top: 24px; }
+  .btn-back { flex: 1; background: var(--white); border: 2.5px solid var(--brown); border-radius: 12px; padding: 14px; font-family: 'Nunito', sans-serif; font-weight: 900; font-size: 0.9rem; letter-spacing: 1px; text-transform: uppercase; cursor: pointer; color: var(--brown); box-shadow: 3px 3px 0 var(--brown); }
+  .btn-next { flex: 2; background: var(--gold-btn); border: 2.5px solid var(--brown); border-radius: 12px; padding: 14px; font-family: 'Nunito', sans-serif; font-weight: 900; font-size: 0.9rem; letter-spacing: 1px; text-transform: uppercase; cursor: pointer; color: var(--brown); box-shadow: 3px 3px 0 var(--brown); transition: transform .1s, box-shadow .1s; }
+  .btn-next:hover { transform: translate(-1px,-1px); box-shadow: 4px 4px 0 var(--brown); }
+  .btn-next:disabled { opacity: 0.4; cursor: not-allowed; }
+  .toggle-card { display: flex; align-items: center; justify-content: space-between; background: var(--white); border: 2.5px solid var(--brown); border-radius: 14px; padding: 14px 16px; margin-bottom: 12px; cursor: pointer; box-shadow: 3px 3px 0 var(--brown); transition: background .1s; user-select: none; }
+  .toggle-card.selected { background: var(--gold-btn); }
+  .toggle-check { width: 26px; height: 26px; border: 2.5px solid var(--brown); border-radius: 8px; background: var(--cream2); display: flex; align-items: center; justify-content: center; font-size: 1rem; flex-shrink: 0; }
+  .toggle-card.selected .toggle-check { background: var(--brown); color: var(--gold); }
+  .choice-card { display: flex; align-items: center; justify-content: space-between; background: var(--white); border: 2.5px solid var(--brown); border-radius: 14px; padding: 14px 16px; margin-bottom: 12px; cursor: pointer; box-shadow: 3px 3px 0 var(--brown); transition: transform .1s, box-shadow .1s, background .1s; }
+  .choice-card:hover { transform: translate(-1px,-1px); box-shadow: 4px 4px 0 var(--brown); }
+  .choice-card.selected { background: var(--gold-btn); transform: translate(-1px,-1px); box-shadow: 4px 4px 0 var(--brown); }
+  .choice-name { font-weight: 800; font-size: 1rem; }
+  .choice-price-tag { background: var(--cream2); border: 2px solid var(--brown); border-radius: 20px; padding: 4px 12px; font-weight: 900; font-size: 0.85rem; box-shadow: 1px 1px 0 var(--brown); }
+  .form-input { -webkit-appearance: none; appearance: none; width: 100%; padding: 14px 16px; border: 2.5px solid #4A2E10; border-radius: 12px; font-family: 'Nunito', sans-serif; font-size: 1rem; font-weight: 700; background: #FFFFFF; color: #4A2E10; outline: none; box-shadow: 3px 3px 0 #4A2E10; box-sizing: border-box; margin-bottom: 12px; }
+  .collect-box { background: #F2C72C; border: 2.5px solid #4A2E10; border-radius: 14px; padding: 14px 16px; box-shadow: 3px 3px 0 #4A2E10; color: #4A2E10; margin-top: 12px; }
+  .recap-row { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px dashed rgba(44,21,0,0.15); font-size: 0.95rem; }
+  .recap-row:last-child { border-bottom: none; }
+  .recap-label { font-weight: 700; }
+  .recap-value { font-weight: 600; color: var(--brown-light); }
+  .recap-total { display: flex; justify-content: space-between; padding: 14px 0 0; font-family: 'Bangers', cursive; font-size: 1.4rem; letter-spacing: 1px; margin-top: 4px; }
+  .whatsapp-btn { display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; background: #4A2E10; border: 3px solid var(--brown); border-radius: 14px; padding: 16px; font-family: 'Nunito', sans-serif; font-weight: 900; font-size: 1rem; letter-spacing: 1px; text-transform: uppercase; color: white; cursor: pointer; box-shadow: 4px 4px 0 var(--brown); margin-top: 20px; text-decoration: none; transition: transform .1s, box-shadow .1s; }
+</style>
+</head>
+<body>
+
+<script>
+  const petalCount = 14;
+  for (let i = 0; i < petalCount; i++) {
+    const p = document.createElement('div'); p.className = 'petal';
+    p.style.cssText = `left:${Math.random()*100}%;animation-duration:${6+Math.random()*8}s;animation-delay:${Math.random()*8}s;width:${8+Math.random()*8}px;height:${8+Math.random()*8}px;transform:rotate(${Math.random()*360}deg);`;
+    document.body.appendChild(p);
+  }
+</script>
+
+<nav>
+  <img src="logo-lr.png" alt="Luji Rice" style="height:48px;width:auto;">
+  <button class="nav-btn" onclick="openOrder()">🛒 Commander</button>
+</nav>
+
+<section id="hero">
+  <img src="logo-script.png" alt="Luji Rice" style="width:220px;height:auto;margin-bottom:4px;">
+  <h1 class="hero-title">LUJIRICE</h1>
+  <div class="hero-divider"></div>
+  <p class="hero-tagline">Croustillant, chaud, sauce maison.<br>Le reste, c'est du bruit.</p>
+  <p class="hero-sub">Du poulet krousty doré, du riz fumant, une sauce qui fait la différence. Street food japonais, servi sans chichis.</p>
+  <button class="hero-cta" onclick="openOrder()">COMMANDER</button>
+</section>
+
+<section id="menu">
+  <h2 class="section-title">LA CARTE</h2>
+  <div class="section-divider"></div>
+  <div class="menu-card" style="position:relative">
+    <span class="classique-badge">CLASSIQUE 👑</span>
+    <img src="krousty-m.jpg" alt="Krousty M">
+    <div class="menu-card-body">
+      <div class="menu-card-row"><span class="menu-card-name">KROUSTY M</span><span class="menu-card-price">7,50€</span></div>
+      <p class="menu-card-desc">Poulet croustillant, riz chaud et sauce maison — le trio qui tient la route.</p>
+    </div>
+  </div>
+  <div class="menu-card" style="position:relative">
+    <span class="bestseller-badge">BEST-SELLER ⭐</span>
+    <img src="krousty-xl.jpg" alt="Krousty XL">
+    <div class="menu-card-body">
+      <div class="menu-card-row"><span class="menu-card-name">KROUSTY XL</span><span class="menu-card-price">10,00€</span></div>
+      <p class="menu-card-desc">Même trio gagnant, portion revue à la hausse. Pour les vraies faims, sans compromis.</p>
+    </div>
+  </div>
+  <div class="menu-card" style="position:relative">
+    <span class="nouveaute-badge">NOUVEAUTÉ 🆕</span>
+    <img src="krousty-boursin.jpg" alt="Krousty Boursin">
+    <div class="menu-card-body">
+      <div class="menu-card-row"><span class="menu-card-name">KROUSTY BOURSIN</span><span class="menu-card-price">10,00€</span></div>
+      <p class="menu-card-desc">Le krousty nappé d'une sauce Boursin crémeuse qui fond sur le poulet chaud.</p>
+    </div>
+  </div>
+</section>
+
+<section id="options-section">
+  <div class="options-card">
+    <div class="options-card-title">⚡ OPTIONS</div>
+    <div class="option-row"><span class="option-name">Sauce Krousty</span><span class="option-price">+0,50€</span></div>
+    <div class="option-row"><span class="option-name">Sauce Sucrée</span><span class="option-price">+0,50€</span></div>
+    <div class="option-row"><span class="option-name">Sauce Piquante</span><span class="option-price">+0,50€</span></div>
+    <div class="option-row"><span class="option-name">Supplément Poulet</span><span class="option-price">+1,50€</span></div>
+  </div>
+  <div class="options-card">
+    <div class="options-card-title">🥤 BOISSONS &nbsp;<span style="font-family:Nunito;font-size:1rem;font-weight:700">+1,50€</span></div>
+    <div class="drinks-tags">
+      <span class="drink-tag">Eau</span><span class="drink-tag">Coca</span><span class="drink-tag">Coca Cherry</span><span class="drink-tag">Ice Tea</span><span class="drink-tag">Oasis</span>
+    </div>
+  </div>
+</section>
+
+<section id="infos">
+  <h2 class="section-title">INFOS PRATIQUES</h2>
+  <div class="section-divider"></div>
+  <div class="info-card"><div class="info-icon">📍</div><div><div class="info-label">ZONE DE LIVRAISON</div><div class="info-value">Angoulême &amp; Alentours</div></div></div>
+  <div class="info-card"><div class="info-icon">🕐</div><div><div class="info-label">HORAIRES</div><div class="info-value">Mercredi au Dimanche, 19h à 23h</div></div></div>
+  <div class="info-card"><div class="info-icon">🚚</div><div><div class="info-label">LIVRAISON</div><div class="info-value">À partir de 20€ de commande</div></div></div>
+  <div class="info-card"><div class="info-icon">💳</div><div><div class="info-label">PAIEMENT</div><div class="info-value">Espèces / Wero / PayPal / CB / Apple Pay / Google Pay</div></div></div>
+</section>
+
+<footer>
+  <img src="logo-lr.png" alt="Luji Rice" style="height:100px;width:auto;margin-bottom:24px;position:relative;">
+  <br>
+  <a href="https://snapchat.com/t/UeXPVzQB" target="_blank" class="snap-btn">👻 Nous suivre sur Snapchat</a>
+  <p>© 2026 Luji Rice — Poulet Krousty LR</p>
+</footer>
+
+<div id="order-overlay" onclick="handleOverlayClick(event)">
+  <div id="order-modal">
+    <div class="modal-header">
+      <h2 class="section-title" style="font-size:1.8rem;margin-bottom:0">COMMANDER</h2>
+      <button class="modal-close" onclick="closeOrder()">✕</button>
+    </div>
+    <div class="steps">
+      <div class="step-dot active" id="dot-1"><span>1</span></div><div class="step-line" id="line-1"></div>
+      <div class="step-dot" id="dot-2"><span>2</span></div><div class="step-line" id="line-2"></div>
+      <div class="step-dot" id="dot-3"><span>3</span></div><div class="step-line" id="line-3"></div>
+      <div class="step-dot" id="dot-4"><span>4</span></div><div class="step-line" id="line-4"></div>
+      <div class="step-dot" id="dot-5"><span>5</span></div>
+    </div>
+    <div class="step-content active" id="step-1">
+      <div class="step-question">QU'EST-CE QUE TU PRENDS ?</div>
+      <div class="qty-row"><span class="qty-name">KROUSTY M</span><div class="qty-ctrl"><button class="qty-btn" onclick="changePlatQty(this,-1,'Krousty M',7.5)">−</button><span class="qty-val">0</span><button class="qty-btn" onclick="changePlatQty(this,1,'Krousty M',7.5)">+</button></div><span class="qty-price">7,50€</span></div>
+      <div class="qty-row"><span class="qty-name">KROUSTY XL</span><div class="qty-ctrl"><button class="qty-btn" onclick="changePlatQty(this,-1,'Krousty XL',10)">−</button><span class="qty-val">0</span><button class="qty-btn" onclick="changePlatQty(this,1,'Krousty XL',10)">+</button></div><span class="qty-price">10,00€</span></div>
+      <div class="qty-row"><span class="qty-name">KROUSTY BOURSIN</span><div class="qty-ctrl"><button class="qty-btn" onclick="changePlatQty(this,-1,'Krousty Boursin',10)">−</button><span class="qty-val">0</span><button class="qty-btn" onclick="changePlatQty(this,1,'Krousty Boursin',10)">+</button></div><span class="qty-price">10,00€</span></div>
+      <div class="modal-nav"><button class="btn-next" id="btn-next-1" onclick="goStep(2)" disabled>SUIVANT →</button></div>
+    </div>
+    <div class="step-content" id="step-2">
+      <div class="step-question">LES SAUCES 🔥</div>
+      <div id="sauces-container"></div>
+      <div class="modal-nav"><button class="btn-back" onclick="goStep(1)">← RETOUR</button><button class="btn-next" onclick="goStep(3)">SUIVANT →</button></div>
+    </div>
+    <div class="step-content" id="step-3">
+      <div class="step-question">UNE BOISSON ? 🥤</div>
+      <div class="toggle-card" id="card-sans-boisson" onclick="toggleSansBoisson(this)"><span class="choice-name">Pas de boisson</span><div class="toggle-check">✓</div></div>
+      <div class="qty-row"><span class="qty-name">Eau</span><div class="qty-ctrl"><button class="qty-btn" onclick="changeQty(this,-1,'Eau',1.5)">−</button><span class="qty-val">0</span><button class="qty-btn" onclick="changeQty(this,1,'Eau',1.5)">+</button></div><span class="qty-price">+1,50€</span></div>
+      <div class="qty-row"><span class="qty-name">Coca</span><div class="qty-ctrl"><button class="qty-btn" onclick="changeQty(this,-1,'Coca',1.5)">−</button><span class="qty-val">0</span><button class="qty-btn" onclick="changeQty(this,1,'Coca',1.5)">+</button></div><span class="qty-price">+1,50€</span></div>
+      <div class="qty-row"><span class="qty-name">Coca Cherry</span><div class="qty-ctrl"><button class="qty-btn" onclick="changeQty(this,-1,'Coca Cherry',1.5)">−</button><span class="qty-val">0</span><button class="qty-btn" onclick="changeQty(this,1,'Coca Cherry',1.5)">+</button></div><span class="qty-price">+1,50€</span></div>
+      <div class="qty-row"><span class="qty-name">Ice Tea</span><div class="qty-ctrl"><button class="qty-btn" onclick="changeQty(this,-1,'Ice Tea',1.5)">−</button><span class="qty-val">0</span><button class="qty-btn" onclick="changeQty(this,1,'Ice Tea',1.5)">+</button></div><span class="qty-price">+1,50€</span></div>
+      <div class="qty-row"><span class="qty-name">Oasis</span><div class="qty-ctrl"><button class="qty-btn" onclick="changeQty(this,-1,'Oasis',1.5)">−</button><span class="qty-val">0</span><button class="qty-btn" onclick="changeQty(this,1,'Oasis',1.5)">+</button></div><span class="qty-price">+1,50€</span></div>
+      <div class="modal-nav"><button class="btn-back" onclick="goStep(2)">← RETOUR</button><button class="btn-next" id="btn-next-3" onclick="goStep(4)" disabled>SUIVANT →</button></div>
+    </div>
+    <div class="step-content" id="step-4">
+      <div class="step-question">LIVRAISON OU EMPORTER ?</div>
+      <div style="margin-bottom:20px"><label style="font-weight:800;font-size:0.95rem;display:block;margin-bottom:8px">📱 Ton numéro de téléphone</label><input id="input-phone" type="tel" placeholder="06 XX XX XX XX" oninput="checkStep4()" class="form-input"></div>
+      <label style="font-weight:800;font-size:0.95rem;display:block;margin-bottom:10px">🚚 Mode de réception</label>
+      <div class="choice-card" id="card-livraison" onclick="selectMode('livraison')"><span class="choice-name">🛵 Livraison à domicile</span><span class="choice-price-tag">Angoulême</span></div>
+      <div id="livraison-error" style="display:none;background:#FFE5E5;border:2px solid #C0392B;border-radius:10px;padding:10px 14px;margin-top:-6px;margin-bottom:10px;font-weight:800;font-size:0.85rem;color:#C0392B;box-shadow:2px 2px 0 #C0392B;">❌ Minimum 20€ — il te manque <span id="manque-montant"></span></div>
+      <div class="choice-card" id="card-emporter" onclick="selectMode('emporter')"><span class="choice-name">🥡 À emporter</span><span class="choice-price-tag">Espace Carat</span></div>
+      <div id="bloc-adresse" style="display:none;margin-top:16px"><label style="font-weight:800;font-size:0.95rem;display:block;margin-bottom:8px">📍 Adresse de livraison</label><input id="input-adresse" type="text" placeholder="Ex : 12 rue de la Paix, Angoulême" oninput="checkStep4()" class="form-input"></div>
+      <div id="bloc-emporter" style="display:none;margin-top:16px"><div class="collect-box"><div style="font-weight:900;font-size:0.95rem;margin-bottom:4px">📍 Point de collecte</div><div style="font-weight:700;font-size:0.9rem">Espace Carat, Angoulême</div><a href="https://maps.google.com/maps?q=45.67014,0.20957" target="_blank" style="display:inline-block;margin-top:8px;font-size:0.85rem;font-weight:800;color:#4A2E10;text-decoration:underline;">🗺️ Voir sur Plans →</a></div></div>
+
+      <div class="modal-nav"><button class="btn-back" onclick="goStep(3)">← RETOUR</button><button class="btn-next" id="btn-next-4" onclick="validerStep4()" disabled>SUIVANT →</button></div>
+    </div>
+    <div class="step-content" id="step-5">
+      <div class="step-question">TA COMMANDE 🔥</div>
+      <div id="recap-content"></div>
+      <p style="text-align:center;font-size:0.78rem;font-weight:700;color:var(--brown-light);margin-top:20px;margin-bottom:8px;line-height:1.5;">
+  📱 Appuie sur <strong>Ouvrir</strong> pour envoyer ta commande<br>par SMS à <strong>Lujirice</strong>
+</p>
+<button class="whatsapp-btn" onclick="sendOrder()"><svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg>ENVOYER MA COMMANDE PAR SMS</button>
+      <div class="modal-nav"><button class="btn-back" onclick="goStep(4)">← MODIFIER</button></div>
+    </div>
+  </div>
+</div>
+
+<script>
+  let order={plats:[],instances:[],boissons:[],sanBoisson:false,mode:null,phone:'',adresse:''};
+  let currentStep=1;
+  function openOrder(){order={plats:[],instances:[],boissons:[],sanBoisson:false,mode:null,phone:'',adresse:''};currentStep=1;document.querySelectorAll('.choice-card').forEach(c=>c.classList.remove('selected'));document.querySelectorAll('.toggle-card').forEach(c=>c.classList.remove('selected'));document.querySelectorAll('.qty-val').forEach(v=>v.textContent='0');document.getElementById('input-adresse').value='';document.getElementById('input-phone').value='';document.getElementById('bloc-adresse').style.display='none';document.getElementById('bloc-emporter').style.display='none';document.getElementById('btn-next-1').disabled=true;document.getElementById('btn-next-3').disabled=true;document.getElementById('btn-next-4').disabled=true;document.getElementById('livraison-error').style.display='none';document.querySelectorAll('.step-content').forEach(s=>s.classList.remove('active'));document.getElementById('step-1').classList.add('active');updateDots();document.getElementById('order-overlay').classList.add('active');document.body.style.overflow='hidden';}
+  function closeOrder(){document.getElementById('order-overlay').classList.remove('active');document.body.style.overflow='';}
+  function handleOverlayClick(e){if(e.target===document.getElementById('order-overlay'))closeOrder();}
+  function goStep(n){const prev=currentStep;document.getElementById('step-'+currentStep).classList.remove('active');currentStep=n;document.getElementById('step-'+n).classList.add('active');updateDots();if(n===2)buildSaucesStep(prev===1);if(n===5)buildRecap();document.getElementById('order-modal').scrollTop=0;}
+  function updateDots(){for(let i=1;i<=5;i++){const dot=document.getElementById('dot-'+i);if(i<currentStep){dot.className='step-dot done';dot.innerHTML='✓';}else if(i===currentStep){dot.className='step-dot active';dot.innerHTML='<span>'+i+'</span>';}else{dot.className='step-dot';dot.innerHTML='<span>'+i+'</span>';}if(i<5)document.getElementById('line-'+i).className='step-line'+(i<currentStep?' done':'');}}
+  function changePlatQty(btn,delta,name,price){const row=btn.closest('.qty-row');const valEl=row.querySelector('.qty-val');let qty=parseInt(valEl.textContent)+delta;if(qty<0)qty=0;valEl.textContent=qty;order.plats=[];document.querySelectorAll('#step-1 .qty-row').forEach(r=>{const q=parseInt(r.querySelector('.qty-val').textContent);const n=r.querySelector('.qty-name').textContent;const p=n==='KROUSTY M'?7.5:10;if(q>0)order.plats.push({name:n,qty:q,price:p});});document.getElementById('btn-next-1').disabled=order.plats.reduce((s,p)=>s+p.qty,0)===0;}
+  function buildSaucesStep(init){if(init){order.instances=[];order.plats.forEach(p=>{for(let i=0;i<p.qty;i++)order.instances.push({name:p.name,price:p.price,sauces:[]});});};const container=document.getElementById('sauces-container');container.innerHTML='';const sauces=[{name:'Sauce Krousty',price:0.5,label:'+0,50€'},{name:'Sauce Sucrée',price:0.5,label:'+0,50€'},{name:'Sauce Piquante',price:0.5,label:'+0,50€'},{name:'Supplément Poulet',price:1.5,label:'+1,50€'}];order.instances.forEach((inst,idx)=>{const st=order.instances.filter(x=>x.name===inst.name);const num=st.indexOf(inst)+1;const label=st.length>1?`${inst.name} #${num}`:inst.name;const card=document.createElement('div');card.style.cssText='background:#FFF;border:2.5px solid #4A2E10;border-radius:14px;padding:16px;margin-bottom:16px;box-shadow:3px 3px 0 #4A2E10;';let inner=`<div style="font-family:Bangers,cursive;font-size:1.2rem;letter-spacing:1px;color:#4A2E10;margin-bottom:12px;">${label}</div>`;sauces.forEach(s=>{const sel=inst.sauces.some(x=>x.name===s.name)?' selected':'';inner+=`<div class="toggle-card${sel}" onclick="toggleInstSauce(this,${idx},'${s.name}',${s.price})"><span class="choice-name">${s.name}</span><div style="display:flex;align-items:center;gap:8px;"><span class="choice-price-tag">${s.label}</span><div class="toggle-check">✓</div></div></div>`;});card.innerHTML=inner;container.appendChild(card);});}
+  function toggleInstSauce(el,instIdx,sauceName,price){el.classList.toggle('selected');const inst=order.instances[instIdx];const idx=inst.sauces.findIndex(s=>s.name===sauceName);if(idx>=0)inst.sauces.splice(idx,1);else inst.sauces.push({name:sauceName,price});}
+  function toggleSansBoisson(el){const isSel=el.classList.contains('selected');el.classList.toggle('selected');if(!isSel){document.querySelectorAll('#step-3 .qty-val').forEach(v=>v.textContent='0');order.boissons=[];order.sanBoisson=true;document.getElementById('btn-next-3').disabled=false;}else{order.sanBoisson=false;document.getElementById('btn-next-3').disabled=true;}}
+  function changeQty(btn,delta,name,price){const row=btn.closest('.qty-row');const valEl=row.querySelector('.qty-val');let qty=parseInt(valEl.textContent)+delta;if(qty<0)qty=0;valEl.textContent=qty;document.getElementById('card-sans-boisson').classList.remove('selected');order.sanBoisson=false;order.boissons=[];document.querySelectorAll('#step-3 .qty-row').forEach(r=>{const q=parseInt(r.querySelector('.qty-val').textContent);const n=r.querySelector('.qty-name').textContent;if(q>0)order.boissons.push({name:n,qty:q,price:1.5});});document.getElementById('btn-next-3').disabled=order.boissons.reduce((s,b)=>s+b.qty,0)===0;}
+  function getOrderTotal(){let t=0;order.plats.forEach(p=>t+=p.qty*p.price);(order.instances||[]).forEach(inst=>inst.sauces.forEach(s=>t+=s.price));order.boissons.forEach(b=>t+=b.qty*b.price);return t;}
+  function selectMode(mode){if(mode==='livraison'){const total=getOrderTotal();if(total<20){document.getElementById('manque-montant').textContent=(20-total).toFixed(2)+'€';document.getElementById('livraison-error').style.display='block';return;}}document.getElementById('livraison-error').style.display='none';order.mode=mode;document.getElementById('card-livraison').classList.remove('selected');document.getElementById('card-emporter').classList.remove('selected');document.getElementById('card-'+mode).classList.add('selected');document.getElementById('bloc-adresse').style.display=mode==='livraison'?'block':'none';document.getElementById('bloc-emporter').style.display=mode==='emporter'?'block':'none';checkStep4();}
+  function checkStep4(){const phone=document.getElementById('input-phone').value.trim();const adresse=document.getElementById('input-adresse').value.trim();const ok=phone.length>=10&&order.mode&&(order.mode==='emporter'||adresse.length>5);document.getElementById('btn-next-4').disabled=!ok;order.phone=phone;order.adresse=adresse;}
+  function buildRecap(){let total=getOrderTotal();let html='';(order.instances||[]).forEach(inst=>{const st=order.instances.filter(x=>x.name===inst.name);const num=st.indexOf(inst)+1;const label=st.length>1?`${inst.name} #${num}`:inst.name;html+=`<div class="recap-row"><span class="recap-label">${label}</span><span class="recap-value">${inst.price.toFixed(2)}€</span></div>`;inst.sauces.forEach(s=>{html+=`<div class="recap-row" style="padding-left:12px;"><span class="recap-label" style="font-size:0.85rem;">↳ ${s.name}</span><span class="recap-value" style="font-size:0.85rem;">+${s.price.toFixed(2)}€</span></div>`;});});order.boissons.forEach(b=>{html+=`<div class="recap-row"><span class="recap-label">${b.name}${b.qty>1?' x'+b.qty:''}</span><span class="recap-value">+${(b.qty*b.price).toFixed(2)}€</span></div>`;});html+=`<div class="recap-row"><span class="recap-label">${order.mode==='livraison'?'🛵 '+order.adresse:'🥡 Espace Carat'}</span></div>`;html+=`<div class="recap-row"><span class="recap-label">📱 ${order.phone}</span></div>`;html+=`<div class="recap-total"><span>TOTAL</span><span>${total.toFixed(2)}€</span></div>`;document.getElementById('recap-content').innerHTML=html;const lines=['Luji Rice'];(order.instances||[]).forEach(inst=>{const st=order.instances.filter(x=>x.name===inst.name);const num=st.indexOf(inst)+1;const label=st.length>1?`${inst.name} #${num}`:inst.name;lines.push(`• ${label}`);inst.sauces.forEach(s=>lines.push(`  + ${s.name}`));});order.boissons.forEach(b=>lines.push(`+ ${b.name}${b.qty>1?' x'+b.qty:''}`));lines.push(`TOTAL: ${total.toFixed(2)}€`);lines.push(order.mode==='livraison'?`Livraison: ${order.adresse}`:`Emporter: Espace Carat`);lines.push(`Tel: ${order.phone}`);window._smsUrl=`sms:0650275132?body=${encodeURIComponent(lines.join('\n'))}`;}
+  function sendOrder(){if(window._smsUrl)window.open(window._smsUrl,'_blank');}
+
+  function validerStep4(){goStep(5);}
+</script>
+
+<script>
+  (function(){
+    var a = document.getElementById('plans-link');
+    if(!a) return;
+    var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+    if(isIOS) a.href = 'maps://?ll=45.67014,0.20957&q=Espace+Carat';
+    else a.href = 'https://maps.google.com/?q=45.67014,0.20957';
+  })();
+</script>
+
+</body>
+</html>
